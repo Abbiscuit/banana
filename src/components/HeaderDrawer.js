@@ -4,8 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import MailIcon from '@material-ui/icons/Mail';
 import Typography from '@material-ui/core/Typography';
 import Drawer from '@material-ui/core/Drawer';
+import Badge from '@material-ui/core/Badge';
 import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -61,6 +63,11 @@ const HeaderDrawer = props => {
           </Typography>
           {currentUser && (
             <>
+              <IconButton component={Link} to="/inbox">
+                <Badge badgeContent={24} color="primary">
+                  <MailIcon />
+                </Badge>
+              </IconButton>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"

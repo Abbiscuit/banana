@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import Messages from './pages/Messages';
 import WorkInProgress from './components/WorkInProgress';
+import Inbox from './pages/Inbox';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,7 +51,7 @@ function App() {
             currentUser ? (
               <Messages {...props} {...params} />
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/login" />
             )
           }
         />
@@ -75,6 +76,13 @@ function App() {
             ) : (
               <Signup {...props} {...params} />
             )
+          }
+        />
+        <Route
+          exact
+          path="/inbox"
+          render={props =>
+            currentUser ? <Inbox {...props} {...params} /> : <Redirect to="/" />
           }
         />
         {/* Work in progress */}

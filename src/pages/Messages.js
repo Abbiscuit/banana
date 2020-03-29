@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import MailIcon from '@material-ui/icons/Mail';
 
 import CommonFrame from '../components/CommonFrame';
-import { useEffect } from 'react';
+import TipsAlert from '../components/TipsAlert';
 import { db } from '../firebase';
 
 const Messages = props => {
@@ -19,17 +19,19 @@ const Messages = props => {
     const { uid, email } = currentUser;
     e.preventDefault();
 
-    // console.log(text);
+    if (text.trim().length > 0) {
+      db.collection('messages')
+        .doc()
+        .set({
+          text: text,
+          email: email,
+          id: uid
+        })
 
-    db.collection('messages')
-      .doc()
-      .set({
-        text: text,
-        email: email,
-        id: uid
-      })
-
-      .catch(error => console.error(error.message));
+        .catch(error => console.error(error.message));
+    } else {
+      alert('文字を入力してください。');
+    }
 
     setText('');
   };
@@ -44,39 +46,25 @@ const Messages = props => {
     <React.Fragment>
       <CommonFrame currentUser={currentUser}>
         <Box>
+          <TipsAlert />
+
           <Paper
             style={{
               marginBottom: 10,
               padding: '20px 10px'
             }}
           >
-            <Typography gutterBottom color="textSecondary">
-              BaNaNaの使い方
-            </Typography>
-            <Typography gutterBottom>
-              イマドキのメッセージアプリのように、いつでもあなたに声かけはしません。
-            </Typography>
-            <Typography gutterBottom>
-              気になったら開いてみよう
-              <span role="img" aria-label="letter">
-                💌
-              </span>
-            </Typography>
-          </Paper>
-          <Paper
-            style={{
-              marginBottom: 10,
-              padding: '20px 10px'
-            }}
-          >
-            <form onSubmit={submitHandler} style={{ display: 'flex' }}>
+            <form onSubmit={submitHandler}>
               <TextField
-                style={{ flex: 1, marginRight: 8 }}
                 name="text"
                 type="text"
                 value={text}
                 placeholder="メッセージを届けよう"
                 onChange={changeHandler}
+                required
+                multiline
+                margin="normal"
+                fullWidth
               />
               <Button
                 startIcon={<MailIcon />}
@@ -93,11 +81,15 @@ const Messages = props => {
             <Box style={{ padding: 10 }}>
               <Typography gutterBottom>{text}</Typography>
               <Typography color="textSecondary">
-                {text && `文字数: ${text.length}`}
+                {text && `文字数: ${text.trim().length}`}
               </Typography>
             </Box>
           )}
         </Box>
+
+        {/* <Box>
+          <Typography>過去の手紙を見る</Typography>
+        </Box> */}
       </CommonFrame>
     </React.Fragment>
   );

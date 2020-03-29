@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Header from '../components/Header';
 import MailIcon from '@material-ui/icons/Mail';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Home = props => {
   const { currentUser } = props;
@@ -64,6 +65,8 @@ const Home = props => {
           fullWidth
           variant="contained"
           color="primary"
+          component={Link}
+          to="/messages"
         >
           手紙を送る
         </Button>

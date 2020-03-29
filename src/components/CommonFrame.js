@@ -5,6 +5,7 @@ import HeaderDrawer from './HeaderDrawer';
 
 const CommonFrame = props => {
   const { currentUser } = props;
+
   return (
     <React.Fragment>
       <HeaderDrawer currentUser={currentUser} />

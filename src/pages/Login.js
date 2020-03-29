@@ -27,7 +27,7 @@ const Login = () => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.log('login', user);
+        // console.log('login', user);
       })
       .catch(error => {
         setErrorText(error.message);

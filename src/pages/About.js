@@ -35,16 +35,27 @@ const About = props => {
             justifyContent: 'space-between'
           }}
         >
-          <Typography variant="h6" gutterBottom>
-            ちょっとしたイベントの前に、ちょっとしたメッセージを、いつもとは違う伝え方で。
-          </Typography>
-          <Typography
-            style={{
-              flex: 1
-            }}
-          >
-            虫歯の子どもの誕生日に、エールを送りたい！
-          </Typography>
+          <Box style={{ marginBottom: 10 }}>
+            <Typography variant="h6" gutterBottom>
+              昔ながらのお手紙です。
+            </Typography>
+          </Box>
+          <Box style={{ marginBottom: 10 }}>
+            <Typography gutterBottom>
+              イマドキのメッセージアプリのように、通知で悩ませることがありません。
+            </Typography>
+          </Box>
+          <Box style={{ marginBottom: 10 }}>
+            <Typography gutterBottom>いつでも、好きなタイミングで。</Typography>
+          </Box>
+          <Box style={{ flex: 1 }}>
+            <Typography gutterBottom>
+              手紙を確認。そっと送り返しましょう
+              <span role="img" aria-label="love letter">
+                💌
+              </span>
+            </Typography>
+          </Box>
 
           <Button
             startIcon={<MailIcon />}
