@@ -1,0 +1,79 @@
+[debug] [2020-03-29T07:14:44.351Z] ----------------------------------------------------------------------
+[debug] [2020-03-29T07:14:44.353Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-03-29T07:14:44.353Z] CLI Version:   7.16.0
+[debug] [2020-03-29T07:14:44.353Z] Platform:      darwin
+[debug] [2020-03-29T07:14:44.353Z] Node Version:  v12.13.1
+[debug] [2020-03-29T07:14:44.357Z] Time:          Sun Mar 29 2020 16:14:44 GMT+0900 (GMT+09:00)
+[debug] [2020-03-29T07:14:44.357Z] ----------------------------------------------------------------------
+[debug] [2020-03-29T07:14:44.357Z] 
+[debug] [2020-03-29T07:14:44.366Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-29T07:14:44.366Z] > authorizing via signed-in user
+[debug] [2020-03-29T07:14:44.366Z] [iam] checking project firelatte-4876e for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2020-03-29T07:14:44.368Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-03-29T07:14:44.369Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-29T07:14:45.011Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-29T07:14:45.026Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/firelatte-4876e:testIamPermissions  
+
+[debug] [2020-03-29T07:14:46.017Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-29T07:14:46.019Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/firelatte-4876e  
+ 
+[debug] [2020-03-29T07:14:48.028Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'firelatte-4876e'...
+[info] 
+[info] i  deploying storage, firestore, functions, hosting
+[debug] [2020-03-29T07:14:49.589Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/firelatte-4876e  
+ 
+[debug] [2020-03-29T07:14:51.237Z] <<< HTTP RESPONSE 200
+[info] i  firebase.storage: checking storage.rules for compilation errors...
+[debug] [2020-03-29T07:14:51.241Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/firelatte-4876e:test  
+
+[debug] [2020-03-29T07:14:53.086Z] <<< HTTP RESPONSE 200
+[warn] ⚠  [W] undefined:undefined - Ruleset uses old version (version [1]). Please update to the latest version (version [2]).
+[info] ✔  firebase.storage: rules file storage.rules compiled successfully
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[info] i  cloud.firestore: checking firestore.rules for compilation errors...
+[debug] [2020-03-29T07:14:53.093Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/firelatte-4876e:test  
+
+[debug] [2020-03-29T07:14:54.411Z] <<< HTTP RESPONSE 200
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully
+[debug] [2020-03-29T07:14:54.414Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2020-03-29T07:14:54.416Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/firelatte-4876e/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2020-03-29T07:14:54.417Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/firelatte-4876e/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2020-03-29T07:14:55.979Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2020-03-29T07:14:56.925Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-29T07:14:56.926Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/firelatte-4876e/adminSdkConfig  
+ 
+[debug] [2020-03-29T07:14:57.689Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-29T07:14:57.691Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/firelatte-4876e/versions  
+
+[debug] [2020-03-29T07:15:29.234Z] Error: getaddrinfo ENOTFOUND firebasehosting.googleapis.com
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND firebasehosting.googleapis.com
