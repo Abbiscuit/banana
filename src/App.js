@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import Messages from './pages/Messages';
+import WorkInProgress from './components/WorkInProgress';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -73,6 +74,29 @@ function App() {
               <Redirect to="/" />
             ) : (
               <Signup {...props} {...params} />
+            )
+          }
+        />
+        {/* Work in progress */}
+        <Route
+          exact
+          path="/profile"
+          render={props =>
+            currentUser ? (
+              <WorkInProgress {...props} {...params} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/account-setting"
+          render={props =>
+            currentUser ? (
+              <WorkInProgress {...props} {...params} />
+            ) : (
+              <Redirect to="/" />
             )
           }
         />

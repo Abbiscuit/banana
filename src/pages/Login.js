@@ -70,7 +70,6 @@ const Login = () => {
                 type="password"
                 name="password"
                 autoComplete="current-password"
-                placeholder="1234"
                 value={password}
                 onChange={changeHandler}
                 fullWidth
