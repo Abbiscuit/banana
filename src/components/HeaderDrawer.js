@@ -64,7 +64,7 @@ const HeaderDrawer = props => {
           {currentUser && (
             <>
               <IconButton component={Link} to="/inbox">
-                <Badge badgeContent={24} color="primary">
+                <Badge badgeContent={0} color="primary">
                   <MailIcon />
                 </Badge>
               </IconButton>
